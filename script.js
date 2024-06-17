@@ -1,18 +1,15 @@
 document.getElementById('showPhotosBtn').addEventListener('click', function() {
     const photoContainer = document.getElementById('photoContainer');
     const message = document.getElementById('message');
-    
+    const userName = document.getElementById('userName');
+    const nameInput = document.getElementById('nameInput').value;
+
     // List of photo URLs
     const photos = [
-        'Capture8.PNG',
-        'Capture2.PNG',
-        'Capture7.PNG',
-        'Capture3.PNG',
-	'Capture9.PNG',
-        'Capture5.PNG',
-	'Capture10.PNG',
-	'g1.PNG',
-	'g2.PNG'
+        'h1.jfif',
+        'h2.jfif',
+        'h3.jfif',
+        'h4.jfif'
     ];
 
     // Clear any existing photos
@@ -22,11 +19,15 @@ document.getElementById('showPhotosBtn').addEventListener('click', function() {
     photos.forEach(photo => {
         const img = document.createElement('img');
         img.src = photo;
+        img.classList.add('photo'); // Add a class to control styling if needed
         photoContainer.appendChild(img);
     });
 
     // Display the photo container
     photoContainer.style.display = 'flex';
+
+    // Set the user's name in the message
+    userName.textContent = nameInput ? nameInput : "you"; // Default to "you" if no name is provided
 
     // Show message
     message.style.display = 'block';
